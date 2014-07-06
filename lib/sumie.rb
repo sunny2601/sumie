@@ -1,5 +1,3 @@
-require "sumie/version"
-
-module Sumie
-  # Your code goes here...
-end
+require 'spree_core'
+require 'sumie/engine'
+require 'sumie/version'
