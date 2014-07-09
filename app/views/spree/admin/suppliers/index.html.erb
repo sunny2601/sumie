@@ -1,0 +1,63 @@
+<% content_for :page_title do %>
+  <%= Spree.t('suppliers') %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li id="new_product_link">
+    <%= button_link_to Spree.t(:new_supplier), new_object_url, { :remote => true, :icon => 'plus', :id => 'admin_new_supplier' } %>
+  </li>
+<% end if can?(:create, Spree::Supplier) %>
+
+<% content_for :table_filter_title do %>
+  <%= Spree.t('search') %>
+<% end %>
+
+<% content_for :table_filter do %>
+<%- end -%>
+
+<div id="new_supplier_wrapper" data-hook></div>
+
+<% paginate @suppliers %>
+
+<% if @suppliers.any? %>
+  <table class="index" id="listing_suppliers">
+    <colgroup>
+      <col style="width: 25%;">
+      <col style="width: 25%;">
+      <col style="width: 25%;">
+      <col style="width: 10%;">
+    </colgroup>
+    <thead>
+      <tr>
+        <th><%= Spree::Supplier.human_attribute_name(:name) %></th>
+        <th><%= Spree.t('user') %></th>
+        <th><%= Spree::Supplier.human_attribute_name(:created_at) %></th>
+        <th data-hook="admin_products_index_header_actions" class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <%- @suppliers.each do |supplier| -%>
+      <tr id="<%= dom_id supplier %>">
+        <td>
+          <%= link_to supplier.name, admin_supplier_path(supplier.id) %>
+        </td>
+        <td>
+          <%= link_to supplier.user.email, admin_user_path(supplier.user.id) %>
+        </td>
+        <td class="align-center">
+          <%= supplier.created_at %>
+        </td>
+        <td class="actions" data-hook="admin_suppliers_index_row_actions">
+          <%= link_to_edit supplier, :no_text => true, :class => 'edit' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="no-objects-found">
+    <%= Spree.t(:no_results) %>
+  </div>
+<% end %>
+
+<%= paginate @suppliers -%>
