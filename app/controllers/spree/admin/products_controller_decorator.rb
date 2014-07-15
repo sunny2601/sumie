@@ -7,6 +7,8 @@ Spree::Admin::ProductsController.class_eval do
   end
 
   def before_create
+    return false if spree_current_user.has_spree_role?('admin')
+
     params[:product][:supplier_id] = spree_current_user.supplier.id
   end
 end
