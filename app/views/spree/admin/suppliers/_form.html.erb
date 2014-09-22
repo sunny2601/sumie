@@ -1,20 +1,90 @@
 <div data-hook="admin_supplier_form_fields">
 
-  <div class="left eight columns alpha" data-hook="admin_supplier_form_left">
-    <div data-hook="admin_supplier_form_name">
-      <%= f.field_container :name do %>
-        <%= f.label :name, raw(Spree.t(:name) + content_tag(:span, ' *', :class => 'required')) %>
-        <%= f.text_field :name, :class => 'fullwidth title' %>
-        <%= f.error_message_on :name %>
-      <% end %>
-    </div>
+
+  <div data-hook="admin_supplier_form_name">
+    <%= f.field_container :name do %>
+      <%= f.label :name, raw(Spree.t(:name) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.text_field :name, :class => 'fullwidth title' %>
+      <%= f.error_message_on :name %>
+    <% end %>
+  </div>
+
+
+  <div data-hook="admin_supplier_form_title">
+    <%= f.field_container :title do %>
+      <%= f.label :title, raw(Spree.t(:title) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.text_field :title, :class => 'fullwidth title' %>
+      <%= f.error_message_on :title %>
+    <% end %>
+  </div>
+
+
+  <div data-hook="admin_supplier_form_description">
+    <%= f.field_container :description do %>
+      <%= f.label :description, raw(Spree.t(:description) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.text_area :description, :class => 'fullwidth description' %>
+      <%= f.error_message_on :description %>
+    <% end %>
+  </div>
+
+
+  <div data-hook="admin_supplier_form_email">
+    <%= f.field_container :email do %>
+      <%= f.label :email, raw(Spree.t(:email) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.text_field :email, :class => 'fullwidth email' %>
+      <%= f.error_message_on :email %>
+    <% end %>
+  </div>
+
+
+  <div data-hook="admin_supplier_form_phone">
+    <%= f.field_container :phone do %>
+      <%= f.label :phone, raw(Spree.t(:phone) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.text_field :phone, :class => 'fullwidth phone' %>
+      <%= f.error_message_on :phone %>
+    <% end %>
+  </div>
+
+
+  <div data-hook="admin_supplier_form_city">
+    <%= f.field_container :city do %>
+      <%= f.label :city, raw(Spree.t(:city) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.text_field :city, :class => 'fullwidth city' %>
+      <%= f.error_message_on :city %>
+    <% end %>
+  </div>
+
+  <div data-hook="admin_supplier_form_country">
+    <%= f.field_container :country_id do %>
+      <%= f.label :country_id, Spree.t(:country) %>
+      <%= f.collection_select(:country_id, @countries, :id, :name, { :include_blank => false }, { :class => 'select2 required' }) %>
+      <%= f.error_message_on :country_id %>
+    <% end %>
   </div>
 
   <div data-hook="admin_supplier_form_user">
     <%= f.field_container :user do %>
       <%= f.label :user_id, Spree.t(:user) %>
-      <%= f.collection_select(:user_id, @users, :id, :email, { :include_blank => false }, { :class => 'select2' }) %>
+      <%= f.collection_select(:user_id, @users, :id, :email, { :include_blank => false }, { :class => 'select2 required' }) %>
       <%= f.error_message_on :user %>
+    <% end %>
+  </div>
+
+
+  <div data-hook="admin_supplier_form_address1">
+    <%= f.field_container :address1 do %>
+      <%= f.label :address1, raw(Spree.t(:address1) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.text_field :address1, :class => 'fullwidth address1' %>
+      <%= f.error_message_on :address1 %>
+    <% end %>
+  </div>
+
+
+  <div data-hook="admin_supplier_form_zipcode">
+    <%= f.field_container :zipcode do %>
+      <%= f.label :zipcode, raw(Spree.t(:zipcode) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.text_field :zipcode, :class => 'fullwidth zipcode' %>
+      <%= f.error_message_on :zipcode %>
     <% end %>
   </div>
 

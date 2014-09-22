@@ -12,7 +12,5 @@ class AddFieldsToSuppliers < ActiveRecord::Migration
     add_column :spree_suppliers, :facebook, :string
     add_column :spree_suppliers, :description, :text
     add_column :spree_suppliers, :user_id, :integer
-    add_column :spree_suppliers, :city, :string
-    add_column :spree_suppliers, :country, :string
   end
 end
