@@ -45,6 +45,13 @@
     <% end %>
   </div>
 
+  <div data-hook="admin_supplier_form_phone">
+    <%= f.field_container :logo do %>
+      <%= f.label :logo, raw(Spree.t(:logo) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.file_field :logo, :class => 'fullwidth logo' %>
+      <%= f.error_message_on :logo %>
+    <% end %>
+  </div>
 
   <div data-hook="admin_supplier_form_city">
     <%= f.field_container :city do %>

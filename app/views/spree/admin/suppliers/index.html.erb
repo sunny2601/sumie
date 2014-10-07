@@ -39,7 +39,8 @@
     <%- @suppliers.each do |supplier| -%>
       <tr id="<%= dom_id supplier %>">
         <td>
-          <%= link_to supplier.name, admin_supplier_path(supplier.id) %>
+          <%= link_to image_tag(supplier.logo.url(:thumb)), admin_supplier_path(supplier.id) %>
+          <h2><%= link_to supplier.name, admin_supplier_path(supplier.id) %></h2>
         </td>
         <td>
           <%= link_to supplier.user.email, admin_user_path(supplier.user.id) %>
