@@ -32,6 +32,7 @@
         <th><%= Spree::Supplier.human_attribute_name(:name) %></th>
         <th><%= Spree.t('user') %></th>
         <th><%= Spree::Supplier.human_attribute_name(:created_at) %></th>
+        <th><%= Spree::Supplier.human_attribute_name(:active) %></th>
         <th data-hook="admin_products_index_header_actions" class="actions"></th>
       </tr>
     </thead>
@@ -39,14 +40,17 @@
     <%- @suppliers.each do |supplier| -%>
       <tr id="<%= dom_id supplier %>">
         <td>
-          <%= link_to image_tag(supplier.logo.url(:thumb)), admin_supplier_path(supplier.id) %>
-          <h2><%= link_to supplier.name, admin_supplier_path(supplier.id) %></h2>
+          <%= link_to image_tag(supplier.logo.url(:thumb)), edit_admin_supplier_path(supplier.id) %>
+          <h2><%= link_to supplier.name, edit_admin_supplier_path(supplier.id) %></h2>
         </td>
         <td>
           <%= link_to supplier.user.email, admin_user_path(supplier.user.id) %>
         </td>
         <td class="align-center">
           <%= supplier.created_at %>
+        </td>
+        <td class="align-center">
+          <%= supplier.active %>
         </td>
         <td class="actions" data-hook="admin_suppliers_index_row_actions">
           <%= link_to_edit supplier, :no_text => true, :class => 'edit' %>

@@ -1,5 +1,13 @@
 <div data-hook="admin_supplier_form_fields">
 
+  <div data-hook="admin_supplier_form_zipcode">
+  <%= f.field_container :active do %>
+    <%= f.label :active, raw(Spree.t(:active) + content_tag(:span, ' *', :class => 'required')) %>
+    <%= f.check_box :active, :class => 'fullwidth active' %>
+    <%= f.error_message_on :active %>
+  <% end %>
+  </div>
+
 
   <div data-hook="admin_supplier_form_name">
     <%= f.field_container :name do %>
