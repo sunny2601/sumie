@@ -1,7 +1,7 @@
 SpreeSumie
 ==========
 
-Introduction goes here.
+Enable's the MultiVendor feature on spree 2.3
 
 Installation
 ------------
