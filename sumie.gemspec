@@ -6,11 +6,11 @@ require 'sumie/version'
 Gem::Specification.new do |s|
   s.name          = "sumie"
   s.version       = Sumie::VERSION
-  s.authors       = ["Tsyren Ochirov"]
-  s.email         = ["nsu1team@gmail.com"]
-  s.summary       = %q{TODO: Write a short summary. Required.}
-  s.description   = %q{TODO: Write a longer description. Optional.}
-  s.homepage      = ""
+  s.authors       = ["Carlos Ramos"]
+  s.email         = ["carakan@gmail.com"]
+  s.summary       = "Add multi-vendors in a Spree"
+  s.description   = "Add multi-vendors in a Spree"
+  s.homepage      = "https://github.com/zenlabs/sumie"
   s.license       = "MIT"
 
   s.files         = `git ls-files -z`.split("\x0")
