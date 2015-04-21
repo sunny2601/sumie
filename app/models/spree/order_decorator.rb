@@ -1,4 +1,3 @@
-Spree::Order.class_eval do
+Spree::Product.class_eval do
   belongs_to :supplier
-  has_many :products
 end
