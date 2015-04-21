@@ -1,3 +1,3 @@
-Spree::Product.class_eval do
+Spree::Order.class_eval do
   belongs_to :supplier
 end
